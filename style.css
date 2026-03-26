@@ -20,7 +20,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 40px;
+  padding: 8px 28px;
 }
 
 nav h2 {
@@ -93,23 +93,59 @@ nav.scrolled .nav-links a:focus-visible {
 /* HERO */
 .hero {
   text-align: center;
-  padding: 80px 20px;
+  padding: 40px 16px;
 }
 
 .hero h1 {
-  font-size: 2.5em;
+  font-size: 2.25em;
+  margin: 0 0 8px;
+}
+
+.hero .authors {
+  margin: 0 0 12px;
+  font-size: 1.05em;
+  color: #1f2937;
+  font-weight: 600;
+}
+
+.buttons {
+  display: inline-flex;
+  gap: 8px;
 }
 
 .buttons a {
-  margin: 10px;
-  padding: 10px 20px;
-  border: 1px solid #333;
+  margin: 0;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #f8fbff 0%, #e8f0ff 100%);
+  box-shadow: 0 8px 18px rgba(30, 60, 110, 0.12);
+  color: #13233a;
+  font-weight: 600;
   text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.buttons a:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(30, 60, 110, 0.18);
 }
 
 /* SECTIONS */
 .section {
-  padding: 60px 15%;
+  padding: 32px 10%;
+}
+
+.section h2 {
+  margin: 0 0 10px;
+}
+
+.section h3 {
+  margin: 0 0 6px;
+}
+
+.section p {
+  margin: 0 0 10px;
 }
 
 .section.gray {
@@ -118,35 +154,57 @@ nav.scrolled .nav-links a:focus-visible {
 
 /* PLACEHOLDER */
 .placeholder {
-  border: 2px dashed #000000;
-  padding: 40px;
+  border: none;
+  padding: 18px;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 10px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
 }
 
 .gasp-flow {
-  border: 2px solid #000000;
-  padding: 40px;
+  border: none;
+  padding: 18px;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 10px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #f8fafc 0%, #edf3fb 100%);
+}
+
+.gasp-flow img {
+  border-radius: 10px;
 }
 
 /* TWO COLUMN */
 .two-column {
   display: flex;
-  gap: 40px;
+  gap: 20px;
+  align-items: center;
 }
 
 .two-column div {
   flex: 1;
 }
 
+.two-column img {
+  border-radius: 12px;
+  width: 100%;
+  height: auto;
+  box-shadow: 0 10px 24px rgba(17, 24, 39, 0.14);
+}
+
+.two-column img.method-gif {
+  width: 82%;
+  display: block;
+  margin: 0 auto;
+}
+
 /* EXAMPLES */
 .example-box {
   background: white;
-  padding: 20px;
+  padding: 14px;
   border-left: 4px solid #333;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 
 /* PAPER */
@@ -158,15 +216,44 @@ nav.scrolled .nav-links a:focus-visible {
 }
 
 .citation {
-  background: #eee;
-  padding: 15px;
-  margin-top: 20px;
+  background: linear-gradient(180deg, #f7f7f8 0%, #ececef 100%);
+  padding: 12px;
+  margin-top: 12px;
   font-size: 0.9em;
+  border-radius: 12px;
+}
+
+.results-figure {
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+}
+
+.results-figure img {
+  width: min(760px, 50%);
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(17, 24, 39, 0.14);
 }
 
 /* FOOTER */
 footer {
   text-align: center;
-  padding: 20px;
+  padding: 14px;
   border-top: 1px solid #ddd;
+}
+
+@media (max-width: 900px) {
+  .section {
+    padding: 26px 6%;
+  }
+
+  .two-column {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .two-column img.method-gif {
+    width: 92%;
+  }
 }
