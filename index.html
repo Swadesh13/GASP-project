@@ -12,7 +12,12 @@
 		<nav>
 			<div class="nav-container">
 				<h2>GASP</h2>
-				<div class="nav-links">
+				<button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+				<div class="nav-links" id="nav-links">
 					<a href="#overview">Overview</a>
 					<a href="#method">Method</a>
 					<a href="#results">Results</a>
@@ -25,7 +30,8 @@
 		<!-- HERO -->
 		<section class="hero">
 			<h1>GASP: Guided Asymmetric Self-Play for Coding LLMs</h1>
-			<p class="authors">Swadesh Jana · Cansu Sancaktar · Tomáš Daniš · Georg Martius · Antonio Orvieto · Pavel Kolev</p>
+			<p class="authors">Swadesh Jana* · Cansu Sancaktar* · Tomáš Daniš · Georg Martius · Antonio Orvieto · Pavel Kolev</p>
+			<p>*Equal contribution</p>
 			<!-- <p>Learning at the edge of capability through structured curriculum generation</p> -->
 			<div class="buttons">
 				<a href="https://arxiv.org/abs/2603.15957" target="_blank">📄 Paper</a>
@@ -35,12 +41,13 @@
 
 		<!-- OVERVIEW -->
 		<section id="overview" class="section">
-			<h2>Overview</h2>
+			<!-- <h2>Overview</h2> -->
 			<p>
 				GASP introduces a guided self-play framework where a teacher model generates curriculum aligned with hard real-world coding
 				problems ("goalposts"). Instead of random task generation, the system progressively constructs easier (lemma) problems from
 				the original hard goalposts and then subsequently harder (lift) problems from the lemma to bridge the gap to these goals.
 			</p>
+			<br />
 
 			<div class="gasp-flow">
 				<!-- Replace with your main diagram -->
@@ -120,8 +127,7 @@
   author={Jana, Swadesh and Sancaktar, Cansu and Dani{\v{s}}, Tom{\'a}{\v{s}} and Martius, Georg and Orvieto, Antonio and Kolev, Pavel},
   journal={arXiv preprint arXiv:2603.15957},
   year={2026}
-}
-    </pre
+}</pre
 				>
 			</div>
 		</section>
@@ -132,6 +138,7 @@
 		</footer>
 
 		<script>
+			// Navbar scroll detection
 			const nav = document.querySelector("nav");
 
 			const updateNavbarState = () => {
@@ -140,6 +147,31 @@
 
 			updateNavbarState();
 			window.addEventListener("scroll", updateNavbarState, { passive: true });
+
+			// Mobile menu toggle
+			const menuToggle = document.getElementById("menu-toggle");
+			const navLinks = document.getElementById("nav-links");
+
+			menuToggle.addEventListener("click", () => {
+				navLinks.classList.toggle("active");
+				menuToggle.classList.toggle("active");
+			});
+
+			// Close menu when a link is clicked
+			document.querySelectorAll(".nav-links a").forEach((link) => {
+				link.addEventListener("click", () => {
+					navLinks.classList.remove("active");
+					menuToggle.classList.remove("active");
+				});
+			});
+
+			// Close menu when clicking outside
+			document.addEventListener("click", (e) => {
+				if (!nav.contains(e.target)) {
+					navLinks.classList.remove("active");
+					menuToggle.classList.remove("active");
+				}
+			});
 		</script>
 	</body>
 </html>
